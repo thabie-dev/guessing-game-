@@ -1,8 +1,8 @@
 
 //const randomElem =document.querySelector(".random");
-let randomNumber = Math.ceil((Math.random()* 100))
+let randomNumber = Math.ceil((Math.random() * 100))
 
-//randomNumber.innerHTML = randomNumber
+//randomNumber.innerHTML = randomNumber;
 const number_guess = document.querySelector(".number_guess");
 const guess_btn = document.querySelector(".guess_btn");
 const message = document.querySelector(".message");
