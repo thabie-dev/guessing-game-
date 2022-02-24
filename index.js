@@ -1,29 +1,26 @@
-
 //const randomElem =document.querySelector(".random");
-let randomNumber = Math.ceil((Math.random() * 100))
+let randomNumber = Math.ceil((Math.random() * 100));
 
 //randomNumber.innerHTML = randomNumber;
-const number_guess = document.querySelector(".number_guess");
-const guess_btn = document.querySelector(".guess_btn");
-const message = document.querySelector(".message");
+var number_guess = document.querySelector(".guesstxt");
+var guess_btn = document.querySelector(".guess_btn");
+var message = document.querySelector(".message");
 
-function guessBtnClicked(){
-    const guessedNo = number(number_guess.value);
-     if (guessedNo < randomNumber) {
-         message.innerHTML = "Your guess is too low";
+function guessBtnClicked() {
+    
+  if (number_guess.value < randomNumber) {
+    message.innerHTML = "Your guess is too low";
+  } else if (number_guess.value > randomNumber) {
+    message.innerHTML = "Your guess is too high";
+  } else {
+    message.innerHTML = 'correct, the secret number is ${guessedNo}';
+  }
 
-     } else if (guessedNo> randomNumber) {
-         message.innerHTML = "Your guess is too high";
-     } else {
-        message.innerHTML= 'correct, the secret number is ${guessedNo}';
-     }
+  setTimeout (function(){
+    message.innerHTML ="";
 
-     setTimeout (function(){
-         message.innerHTML ="";
+}, 5000);
+}
 
-     }, 2000);
 
-    }
-guess_btn.addEventListener('click', guessBtnClicked)
-
-     
+guess_btn.addEventListener('click', guessBtnClicked);
