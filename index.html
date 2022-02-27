@@ -2,29 +2,55 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> The Guessing Game</title>
+    <link rel="stylesheet" href="./style.css">
+
 </head>
 
-
 <body>
- <div class="container">
-    <h1>Guessing game</h1>
+  <header class="container title">
+    <h1> The Guessing Game</h1>
+    <h1>Guess any number between 1 and 100 and you could win</h1>
+  </header>
 
-    <input type="number" name="guesstxt"  placeholder="number" class="guesstxt">
-    <input type="button" value="Guess" class="guess_btn">
+    <div class="container title">
+        
+        <div class="showMessage"></div>
+        <div class="errors"></div>
+        <div class="row">
 
-    <div class="message">
-      <span class="message">Show the number entered here</span> 
+            <div class="col-12">
+
+              <div class="startButton">
+                <button> START GAME!</button>
+              </div>
+                <p>
+                  <div class="numberGuessed">
+                    <span class="numberGuessed"><em>Guess a number between 1 and 100:</em></span>
+                  </div>
+                <div class="align">
+            
+                    <input type="number" class="selectNumber" name="selectNumber" value="">
+                    <input type="button" class="guessBtn" name="guessBtn" value="Play">
+                </div>
+                <br>
+                <span class="display"></span>
+                <br>
+                <br>
+                <div class="message"></div>
+                </p>
+            </div>
+
+        </div>
     </div>
+<div class="footer">
+  <h3> Thabile Dube | tdgames.co | Codex Workplace incubation 2022</h3>
+</div>
+    <script src="./index.js"></script>
 
-
-  </div> 
-
-  <script src="index.js"></script>
 </body>
 
 </html>

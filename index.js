@@ -1,26 +1,74 @@
-//const randomElem =document.querySelector(".random");
-let randomNumber = Math.ceil((Math.random() * 100));
 
-//randomNumber.innerHTML = randomNumber;
-var number_guess = document.querySelector(".guesstxt");
-var guess_btn = document.querySelector(".guess_btn");
-var message = document.querySelector(".message");
+var selectNum = document.querySelector(".selectNumber");
+var feedbackElem = document.querySelector(".message");
+var guessBtn = document.querySelector(".guessBtn");
 
-function guessBtnClicked() {
-    
-  if (number_guess.value < randomNumber) {
-    message.innerHTML = "Your guess is too low";
-  } else if (number_guess.value > randomNumber) {
-    message.innerHTML = "Your guess is too high";
-  } else {
-    message.innerHTML = 'correct, the secret number is ${guessedNo}';
-  }
+var playerGuess;
+var numberGuessed;
 
-  setTimeout (function(){
-    message.innerHTML ="";
+let randomNumber = Math.ceil((Math.random() * 100))
 
-}, 5000);
+function randomNum() {
+    if (document.querySelector(".selectNumber").value != null) {
+        numberGuessed = document.querySelector(".selectNumber").value;
+    }
+
+    if (numberGuessed > randomNumber) {
+        return "Sorry, your guess is too high.."
+    }
+
+    if (numberGuessed < randomNumber) {
+        return "Sorry, your guess is too low.."
+    }
+
+    else
+        return `Correct, the secret number is ${randomNumber}`
 }
 
+function anyNumber() {
+    if (document.querySelector(".selectNumber").value != null) {
+        numberGuessed = document.querySelector(".selectNumber").value;
+    }
+    console.log(numberGuessed)
+    document.querySelector(".message").innerHTML = numberGuessed;
+}
 
-guess_btn.addEventListener('click', guessBtnClicked);
+function game() {
+    anyNumber()
+    if (numberGuessed < 1) {
+        document.querySelector(".errors").innerHTML = "Enter number above 0..";
+        document.querySelector(".message").innerHTML = "";
+        setTimeout(function () {
+            location.reload()
+        }, 5000);
+    } else
+        if (numberGuessed > 100) {
+            document.querySelector(".errors").innerHTML = "Enter number below 100..";
+            document.querySelector(".message").innerHTML = "";
+            setTimeout(function () {
+                location.reload()
+            }, 5000);
+        }
+        else {
+            if (numberGuessed != undefined) {
+                document.querySelector(".display").innerHTML = randomNum();
+                console.log(randomNumber)
+                setTimeout(function () {
+                    document.querySelector(".display").innerHTML = "";
+                    document.querySelector(".message").innerHTML = "";
+                }, 5000);
+            }
+            if (numberGuessed == randomNumber) {
+                setTimeout(function () {
+                    location.reload()
+                }, 5000);
+
+                setTimeout(function () {
+                    document.querySelector(".showMessage").innerHTML = "New Game Started!"
+                }, 5000);
+            }
+        }
+
+}
+
+guessBtn.addEventListener("click", game)
